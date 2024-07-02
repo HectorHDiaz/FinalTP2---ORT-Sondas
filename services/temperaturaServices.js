@@ -31,17 +31,17 @@ createTemperaturaService = async(id, newTemperatura) =>{
     if(!id || !newTemperatura){
       throw "datos no validos"
     }
-    // const IdValidate = /^\d+$/.test(id);
-    // const temperaturaValidate = /^\d+$/.test(newTemperatura);
-    // if(!IdValidate|| !temperaturaValidate){
-    //   throw "datos no validos"
-    // }
+    const IdValidate = /^\d+$/.test(id);
+    const temperaturaValidate = /^\d+$/.test(newTemperatura);
+    if(!IdValidate|| !temperaturaValidate){
+      throw "letras no validas"
+    }
     
-    if(id<0 || id>5){
-      throw "datos no validos"
+    if(id<=0 || id>5){
+      throw "id no valida"
     }
     if(newTemperatura<-20 || newTemperatura>100){
-      throw "datos no validos"
+      throw "temperatura no valida"
     }
     return this.temperaturaModel.create(id, newTemperatura)
   } catch (error) {
